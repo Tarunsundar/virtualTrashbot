@@ -1,0 +1,42 @@
+<launch>
+	<arg name="input_image" value="/head_camera/rgb/image_raw"/>
+    <include file="$(find CS360_Assignment)/launch/fetch_rviz.launch" />
+	<!--load rgb colour filtering
+		publ<>ishes image to /rgb_color_filter/image [update for node name]
+		equivalents available for hls and hsv
+	-->
+	<include file="$(find opencv_apps)/launch/rgb_color_filter.launch">
+		<arg name="node_name" value="rgb_color_filter_blue" />
+		<arg name="image" value="$(arg input_image)"/>
+		<arg name="r_limit_max" value="50" />
+		<arg name="r_limit_min" value="0" />
+		<arg name="g_limit_max" value="50" />
+		<arg name="g_limit_min" value="0" />
+		<arg name="b_limit_max" value="255" />
+		<arg name="b_limit_min" value="100" />
+	</include>
+	<include file="$(find opencv_apps)/launch/rgb_color_filter.launch">
+		<arg name="node_name" value="rgb_color_filter_red" />
+		<arg name="image" value="$(arg input_image)"/>
+		<arg name="r_limit_max" value="255" />
+		<arg name="r_limit_min" value="100" />
+		<arg name="g_limit_max" value="50" />
+		<arg name="g_limit_min" value="0" />
+		<arg name="b_limit_max" value="50" />
+		<arg name="b_limit_min" value="0" />
+	</include>
+		<include file="$(find opencv_apps)/launch/contour_moments.launch">
+		<arg name="image" value="/rgb_color_filter_red/image"/>
+		<arg name="node_name" value="contour_moments_red" />
+	</include>
+	<!--calculate image moments for contours in input image.
+		Works okay taking input from colour filter or edge detection
+		publishes image to /contour_moments/image
+		moments to /contour_moments/moments
+	-->
+	<include file="$(find opencv_apps)/launch/contour_moments.launch">
+		<arg name="image" value="/rgb_color_filter_blue/image"/>
+		<arg name="node_name" value="contour_moments_blue" />
+		
+	</include>
+</launch>

@@ -1,0 +1,6 @@
+#Request
+uint8 corners
+float32 sideLength
+---
+#Response
+float32 perimeterLength

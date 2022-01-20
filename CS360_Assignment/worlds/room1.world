@@ -1,0 +1,83 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+
+    <include>
+      <uri>model://PurpleRoom</uri>
+      <pose>2.15858 0.860955 0 0 -0 0</pose>
+    </include>
+
+
+    <include>
+      <uri>model://Sofa</uri>
+      <name>Sofa1</name>
+      <pose>7.02002 1.94556 0.00012 0 0 -3.12362</pose>
+    </include>
+
+    <include>
+      <uri>model://Sofa</uri>
+      <name>Sofa2</name>
+      <pose>3.07153 -2.04408 0.000118 0 0 1.58594</pose>
+    </include>
+
+
+    <include>
+      <uri>model://cabinet</uri>
+      <pose>7.73222 -0.972516 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://table</uri>
+      <pose>2.90202 4.14788 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://cafe_table</uri>
+      <pose>-1.05043 4.09006 0 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://bin2_red</uri>
+      <pose>-1.96702 -2.0492 0.010001 0 -0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://BlueCube</uri>
+      <name>Blue1</name>
+      <pose>7.57108 -0.945602 0.544998 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://BlueCube</uri>
+      <name>Blue2</name>
+      <pose>2.95476 3.84166 1.04 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://BlueCube</uri>
+      <name>Blue3</name>
+      <pose>-0.679516 3.72277 0.799998 0 0 0</pose>
+    </include>
+<!--
+    <include>
+      <uri>model://Unicorn</uri>
+      <name>unicorn</name>
+      <pose>7.57108 -0.945602 1.244998 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://Dino_3</uri>
+      <pose>2.95476 4.04166 1.04 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://Dino_5</uri>
+      <pose>-0.679516 4.02277 0.799998 0 0 0</pose>
+    </include>
+-->
+  </world>
+</sdf>

@@ -1,0 +1,15 @@
+<launch>
+<!-- Tell Gazebo where to find our custom object models -->
+<env name="GAZEBO_MODEL_PATH"
+value="$(find CS360_Assignment)/models:$(optenv GAZEBO_MODEL_PATH)" />
+<!-- Start Gazebo with our world model-->
+<include file="$(find fetch_moveit_config)/launch/move_group.launch"/>
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+<arg name="world_name" value="$(find CS360_Assignment)/worlds/room1.world"/>
+</include>
+<!-- Start the fetch robot -->
+<include file="$(find fetch_gazebo)/launch/include/fetch.launch.xml" />
+<!-- Start RViz wit"h our saved view configuration -->
+<node type="rviz" name="rviz" pkg="rviz"
+args="-d $(find CS360_Assignment)/config/fetch_rviz.rviz" />
+</launch>
